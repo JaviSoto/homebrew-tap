@@ -1,31 +1,38 @@
 class CopilotMoneyCli < Formula
-desc "Unofficial CLI client for Copilot Money"
-homepage "https://github.com/JaviSoto/copilot-money-cli"
-version "0.1.0"
-license "MIT"
+  desc "Unofficial CLI client for Copilot Money"
+  homepage "https://github.com/JaviSoto/copilot-money-cli"
+  version "0.1.1"
+  license "MIT"
 
-on_macos do
-on_arm do
-url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.0/copilot-v0.1.0-aarch64-apple-darwin.tar.gz"
-sha256 "d2d9d200894bcd5ada406d89ea10305255993b8c11fbb22264f86fd435813c32"
-end
+  on_macos do
+    on_arm do
+      url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.1/copilot-v0.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "3d085a81d010093b374deba771bff54031b823db30201c929eaa169237770dcf"
+    end
 
-on_intel do
-url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.0/copilot-v0.1.0-x86_64-apple-darwin.tar.gz"
-sha256 "b93e6d9e0a618e1459d94c9bc0db5a410e1726493cd84fe3122f912a2b006628"
-end
-end
+    on_intel do
+      url "https://github.com/JaviSoto/copilot-money-cli/archive/refs/tags/v0.1.1.tar.gz"
+      sha256 "6e6ab72324b488babffe0f99ff0ef4b52795b22fc18225c9ecc99c15468b885c"
+    end
+  end
 
-on_linux do
-url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.0/copilot-v0.1.0-x86_64-unknown-linux-gnu.tar.gz"
-sha256 "4f2a32aee8d2c55ff5a6e4a3d173ee75499c813c88ba05856f915fcd326f05fe"
-end
+  on_linux do
+    url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.1/copilot-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "23069932b8f92dabb18c9ba93e5b89da278f54563e086fe4d5f3d29f1c1fb2aa"
+  end
 
-def install
-bin.install "copilot"
-end
+  depends_on "rust" => :build if Hardware::CPU.intel?
 
-test do
-assert_match "copilot-money-cli", shell_output("#{bin}/copilot version")
-end
+  def install
+    if File.exist?("copilot")
+      bin.install "copilot"
+      libexec.install Dir["libexec/*"] if Dir.exist?("libexec")
+    else
+      system "cargo", "install", *std_cargo_args(path: ".", bin: "copilot")
+    end
+  end
+
+  test do
+    assert_match "copilot-money-cli", shell_output("#{bin}/copilot version")
+  end
 end
