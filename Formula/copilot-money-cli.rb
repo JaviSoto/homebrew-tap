@@ -1,24 +1,24 @@
 class CopilotMoneyCli < Formula
   desc "Unofficial CLI client for Copilot Money"
   homepage "https://github.com/JaviSoto/copilot-money-cli"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.1/copilot-v0.1.1-aarch64-apple-darwin.tar.gz"
-      sha256 "3d085a81d010093b374deba771bff54031b823db30201c929eaa169237770dcf"
+      url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.2/copilot-v0.1.2-aarch64-apple-darwin.tar.gz"
+      sha256 "709142a7bfb2cfb01d0e188fa07cc67d20c6d0fcf5d524d411beb5cc4facf784"
     end
 
     on_intel do
-      url "https://github.com/JaviSoto/copilot-money-cli/archive/refs/tags/v0.1.1.tar.gz"
-      sha256 "6e6ab72324b488babffe0f99ff0ef4b52795b22fc18225c9ecc99c15468b885c"
+      url "https://github.com/JaviSoto/copilot-money-cli/archive/refs/tags/v0.1.2.tar.gz"
+      sha256 "a548c90bd2eab7907593a9e8f60a0984fc38ddd32dde7f0884727a0b41ccced3"
     end
   end
 
   on_linux do
-    url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.1/copilot-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
-    sha256 "23069932b8f92dabb18c9ba93e5b89da278f54563e086fe4d5f3d29f1c1fb2aa"
+    url "https://github.com/JaviSoto/copilot-money-cli/releases/download/v0.1.2/copilot-v0.1.2-x86_64-unknown-linux-gnu.tar.gz"
+    sha256 "e39b03665981d33ff247a1a1b56f39c11b0074864d455a69fb20739de80a7b78"
   end
 
   depends_on "rust" => :build if Hardware::CPU.intel?
