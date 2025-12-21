@@ -1,18 +1,18 @@
 class AppleNotesCli < Formula
   desc "A fast, scriptable CLI for Apple Notes (read/write + backups)"
   homepage "https://github.com/JaviSoto/apple-notes-cli"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/JaviSoto/apple-notes-cli/releases/download/v0.1.0/apple-notes-v0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "06b2af61c8400df5451bb0be17e5bd23f119e0d7a4e38bfe845f93c7fe11f973"
+      url "https://github.com/JaviSoto/apple-notes-cli/releases/download/v0.1.1/apple-notes-v0.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "ad40cf455ac2a94777a58bfd3107a398bc537c6aa362631f8b521443539d853c"
     end
 
     on_intel do
-      url "https://github.com/JaviSoto/apple-notes-cli/releases/download/v0.1.0/apple-notes-v0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "1617be34cb8ef230d8942f249edd3b0f6d5a4a7120f02bfce513b0a31dfbcaa1"
+      url "https://github.com/JaviSoto/apple-notes-cli/releases/download/v0.1.1/apple-notes-v0.1.1-x86_64-apple-darwin.tar.gz"
+      sha256 "c47513af4b86f58b480708761ef45c051bcd34d2a947933bd5f8c829533b204c"
     end
   end
 
