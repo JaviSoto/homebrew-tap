@@ -1,0 +1,3 @@
+[tasks.ci]
+description = "Check formulae and the patched WhatsApp reader"
+run = "bash ci/run.sh"
